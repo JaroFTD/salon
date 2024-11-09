@@ -50,11 +50,11 @@ if (reviewsSwiper) {
       autoHeight: true,
       effect: "fade",
       grabCursor: true,
-      autoplay: {
-         delay: 3000,
-         disableOnInteraction: false,
-         pauseOnMouseEnter: true,
-      },
+      // autoplay: {
+      //    delay: 3000,
+      //    disableOnInteraction: false,
+      //    pauseOnMouseEnter: true,
+      // },
       navigation: {
          nextEl: '.reviews__arrow--next',
          prevEl: '.reviews__arrow--prev',
@@ -73,11 +73,11 @@ if (mastersSwiper) {
       speed: 1000,
       slidesPerView: 'auto',
       spaceBetween: 30,
-      autoplay: {
-         delay: 5000,
-         disableOnInteraction: false,
-         pauseOnMouseEnter: true,
-      },
+      // autoplay: {
+      //    delay: 5000,
+      //    disableOnInteraction: false,
+      //    pauseOnMouseEnter: true,
+      // },
 
    });
 }
