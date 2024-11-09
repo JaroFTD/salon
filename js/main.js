@@ -1,46 +1,5 @@
 "use strict";
 
-// let reviewsSwiper = document.querySelector('.reviews__slider');
-// if (reviewsSwiper) {
-//    const swiper = new Swiper('.reviews__slider', {
-//       loop: true,
-//       slidesPerView: 1,
-//       spaceBetween: 30,
-//       speed: 1000,
-//       autoHeight: true,
-//       autoplay: {
-//          delay: 3000,
-//          disableOnInteraction: false,
-//          pauseOnMouseEnter: true,
-//       },
-//       // // If we need pagination
-//       // pagination: {
-//       //     el: '.swiper-pagination',
-//       // },
-//    });
-// }
-
-// window.addEventListener('load', function () {
-//    let teamsSwiper = document.querySelector('.team__slider');
-//    if (teamsSwiper) {
-//       const swiper = new Swiper('.team__slider', {
-//          loop: true,
-//          speed: 1000,
-//          spaceBetween: 30,
-//          autoHeight: true,
-//          // autoplay: {
-//          //    delay: 3000,
-//          //    disableOnInteraction: false,
-//          //    pauseOnMouseEnter: true,
-//          // },
-//          navigation: {
-//             nextEl: '.team__next',
-//             prevEl: '.team__prev',
-//          },
-//       });
-//    }
-// });
-
 let reviewsSwiper = document.querySelector('.reviews__slider');
 if (reviewsSwiper) {
    const swiper = new Swiper('.reviews__slider', {
