@@ -1923,7 +1923,7 @@ body._lock {
 .main {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
+  min-height: 100svh;
 }
 .main::after {
   content: "";
@@ -1937,7 +1937,7 @@ body._lock {
 .main__container {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
+  min-height: 100svh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
