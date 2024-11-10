@@ -2981,7 +2981,8 @@ body._lock {
   }
 }
 .portfolio__container._anim-items .portfolio__title,
-.portfolio__container._anim-items .tabs-portfolio__navigation {
+.portfolio__container._anim-items .tabs-portfolio__navigation,
+.portfolio__container._anim-items .tabs-portfolio__content {
   opacity: 0;
 }
 .portfolio__container._anim-items._active .portfolio__title {
