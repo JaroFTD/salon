@@ -45,6 +45,41 @@ window.addEventListener('load', () => {
 
 
 
+const animItems = document.querySelectorAll('._anim-items');
+if (animItems.length > 0) {
+   window.addEventListener('scroll', animOnScroll);
+   function animOnScroll() {
+      for (let index = 0; index < animItems.length; index++){
+         const animItem = animItems[index];
+         const animItemHeight = animItem.offsetHeight;
+         const animItemOffset = offset(animItem).top + 300;
+         const animStart = 4;
+
+         let animItemPoint = window.innerHeight - animItemHeight / animStart;
+         if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+         }
+
+         if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < ((animItemOffset - 300) + animItemHeight)) {
+            animItem.classList.add('_active');
+         } else {
+            if (!animItem.classList.contains('_anim-no-hide')) {
+               animItem.classList.remove('_active');
+            }
+         }
+      }
+   }
+   function offset(el) {
+      const rect = el.getBoundingClientRect(),
+         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+   }
+
+   setTimeout(() => {
+      animOnScroll();
+   }, 300);
+}
 // МЕНЮ БУРГЕР
 let menu = document.querySelector('.icon-menu');
 let menuBody = document.querySelector('.menu__body');
@@ -626,41 +661,6 @@ document.addEventListener('keydown', function (e) {
          Element.prototype.msMatchesSelector;
    }
 })();
-const animItems = document.querySelectorAll('._anim-items');
-if (animItems.length > 0) {
-   window.addEventListener('scroll', animOnScroll);
-   function animOnScroll() {
-      for (let index = 0; index < animItems.length; index++){
-         const animItem = animItems[index];
-         const animItemHeight = animItem.offsetHeight;
-         const animItemOffset = offset(animItem).top + 300;
-         const animStart = 4;
-
-         let animItemPoint = window.innerHeight - animItemHeight / animStart;
-         if (animItemHeight > window.innerHeight) {
-            animItemPoint = window.innerHeight - window.innerHeight / animStart;
-         }
-
-         if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < ((animItemOffset - 300) + animItemHeight)) {
-            animItem.classList.add('_active');
-         } else {
-            if (!animItem.classList.contains('_anim-no-hide')) {
-               animItem.classList.remove('_active');
-            }
-         }
-      }
-   }
-   function offset(el) {
-      const rect = el.getBoundingClientRect(),
-         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
-         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
-   }
-
-   setTimeout(() => {
-      animOnScroll();
-   }, 300);
-}
 /**
  * Swiper 11.1.14
  * Most modern mobile touch slider and framework with hardware accelerated transitions
