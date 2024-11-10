@@ -41,8 +41,6 @@ if (mastersSwiper) {
    });
 }
 
-
-
 // МЕНЮ БУРГЕР
 let menu = document.querySelector('.icon-menu');
 let menuBody = document.querySelector('.menu__body');
@@ -54,7 +52,6 @@ menu.addEventListener('click', function () {
 
 // ЛИПКИЙ HEADER
 let header = document.querySelector('.header');
-
 document.onscroll = function () {
    let scroll = window.scrollY;
    if (scroll > 0){
@@ -63,6 +60,7 @@ document.onscroll = function () {
       header.classList.remove('_fixed');
    }
 }
+
 // ЯКОРЬ (ПЛАВНАЯ ПРОКРУТКА ДО НУЖНОГО БЛОКА)
 let menuLinks = document.querySelectorAll('[data-goto]');
 if (menuLinks.length > 0) {
@@ -499,6 +497,7 @@ function uniqArray(array) {
 		return self.indexOf(item) === index;
 	});
 }
+
 // POPUP
 const popupLinks = document.querySelectorAll('[data-popup]');
 const body = document.querySelector('body');
@@ -624,3 +623,39 @@ document.addEventListener('keydown', function (e) {
          Element.prototype.msMatchesSelector;
    }
 })();
+
+const animItems = document.querySelectorAll('._anim-items');
+if (animItems.length > 0) {
+   window.addEventListener('scroll', animOnScroll);
+   function animOnScroll() {
+      for (let index = 0; index < animItems.length; index++){
+         const animItem = animItems[index];
+         const animItemHeight = animItem.offsetHeight;
+         const animItemOffset = offset(animItem).top;
+         const animStart = 4;
+
+         let animItemPoint = window.innerHeight - animItemHeight / animStart;
+         if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+         }
+
+         if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+            animItem.classList.add('_active');
+         } else {
+            if (!animItem.classList.contains('_anim-no-hide')) {
+               animItem.classList.remove('_active');
+            }
+         }
+      }
+   }
+   function offset(el) {
+      const rect = el.getBoundingClientRect(),
+         scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+         scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+   }
+
+   setTimeout(() => {
+      animOnScroll();
+   }, 300);
+}
